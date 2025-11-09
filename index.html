@@ -2,815 +2,1322 @@
 <html>
 
 <head>
-  <title>Sakib Shahriar</title>
+  <title>Sakib Shahriar - Academic Portfolio</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
-  </noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
   <style>
+    /* =============================================
+       AL-FOLIO THEME - AUTHENTIC RECREATION
+       Purple Accent | Top Navigation | Vertical Flow
+    ============================================= */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --purple-color: #824bff;
+      --purple-dark: #6b3ed4;
+      --purple-light: #9d6fff;
+      --text-color: #222;
+      --text-muted: #666;
+      --border-color: #ddd;
+      --bg-color: #fff;
+      --bg-light: #f9f9f9;
+    }
+    
     body {
-      font-family: 'Poppins', sans-serif;
-      font-size: 18pt; /* Increase base font size */
-      line-height: 1.75; /* Increase line height for better readability */
-      color: rgba(255, 255, 255, 0.85); /* Increase text color contrast */
+      font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--bg-color);
+      padding-top: 60px;
     }
-    h1, h2, h3, h4, h5, h6 {
-      color: #ffffff; /* Ensure headings are clearly readable */
+    
+    /* ========== NAVIGATION BAR ========== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 0;
     }
-    a {
-      color: #6a0dad; /* Improve link color for better visibility */
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
     }
-    a:hover {
-      color: #8a2be2;
+    
+    .nav-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-color);
+      text-decoration: none;
     }
-    strong, b {
-      color: #6a0dad;
+    
+    .nav-title:hover {
+      color: var(--purple-color);
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      margin: 0;
+    }
+    
+    .nav-menu a {
+      padding: 8px 16px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 4px;
       font-weight: 500;
-    }
-    p, span, .address {
-      font-size: 1em; /* Ensure paragraphs and spans are readable */
+      transition: all 0.2s;
     }
     
-    .publicationImage {
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--purple-color);
+      background: rgba(130, 75, 255, 0.08);
+    }
+    
+    /* ========== MAIN CONTAINER ========== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+    
+    /* ========== PROFILE SECTION ========== */
+    .profile-section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: start;
+    }
+    
+    .profile-image-wrapper {
+      text-align: center;
+    }
+    
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+    
+    .profile-social {
       display: flex;
-      align-items: center;
       justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
     }
     
-    .publicationImage img {
-      max-width: 150px; /* Ensure images in publication section are not too large */
-      margin-right: 20px; /* Add space between image and text */
-      height: auto;
-      display: block;
+    .profile-social a {
+      color: var(--text-muted);
+      font-size: 20px;
+      transition: color 0.2s;
     }
     
-    .publication-common {
-      display: flex;
-      align-items: center;
+    .profile-social a:hover {
+      color: var(--purple-color);
+    }
+    
+    .profile-content h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+    
+    .profile-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
       margin-bottom: 20px;
     }
     
-    .contentWrapper {
+    .profile-bio {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+    
+    .profile-contact {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    
+    .profile-contact span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .profile-contact i {
+      color: var(--purple-color);
+    }
+    
+    .profile-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    
+    .profile-contact a:hover {
+      color: var(--purple-color);
+    }
+    
+    /* ========== TYPOGRAPHY ========== */
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 60px 0 30px 0;
+      color: var(--text-color);
+    }
+    
+    h2:first-of-type {
+      margin-top: 0;
+    }
+    
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 30px 0 20px 0;
+      color: var(--text-color);
+    }
+    
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 20px 0 10px 0;
+      color: var(--text-color);
+    }
+    
+    a {
+      color: var(--purple-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: var(--purple-dark);
+      text-decoration: underline;
+    }
+    
+    strong, b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    /* ========== SECTIONS ========== */
+    section {
+      margin-bottom: 60px;
+    }
+    
+    /* Stats Box */
+    .stats-box {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(130, 75, 255, 0.05) 0%, rgba(157, 111, 255, 0.05) 100%);
+      border: 1px solid rgba(130, 75, 255, 0.2);
+      border-radius: 8px;
+      margin-bottom: 40px;
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+    
+    .stats-box a {
+      font-weight: 600;
+      color: var(--purple-color);
+    }
+    
+    /* ========== PUBLICATIONS ========== */
+    .publication-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #efefef;
+    }
+    
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+    
+    .pub-thumbnail {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+    }
+    
+    .pub-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .pub-details {
+      flex: 1;
+    }
+    
+    .pub-badge {
+      display: inline-block;
+      background: var(--purple-color);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+    
+    .pub-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--text-color);
+      display: inline;
+    }
+    
+    .pub-authors {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .pub-authors .me {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .pub-venue {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .pub-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .pub-links a {
+      padding: 6px 16px;
+      background: var(--purple-color);
+      color: white;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    
+    .pub-links a:hover {
+      background: var(--purple-dark);
+      text-decoration: none;
+    }
+    
+    /* ========== EDUCATION CARDS ========== */
+    .education-grid {
+      display: grid;
+      gap: 30px;
+    }
+    
+    .education-card {
+      display: flex;
+      gap: 24px;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    
+    .education-card:hover {
+      box-shadow: 0 8px 24px rgba(130, 75, 255, 0.12);
+      border-color: var(--purple-color);
+    }
+    
+    .university-logo {
+      flex-shrink: 0;
+    }
+    
+    .university-logo img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      padding: 8px;
+    }
+    
+    .education-details {
+      flex: 1;
+    }
+    
+    .education-details h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: var(--text-color);
+    }
+    
+    .education-degree {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--purple-color);
+      margin-bottom: 8px;
+    }
+    
+    .education-date {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .education-info {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    
+    .education-info p {
+      margin-bottom: 6px;
+    }
+    
+    /* ========== EXPERIENCE ITEMS ========== */
+    .experience-item {
+      margin-bottom: 32px;
+      padding: 24px;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--purple-color);
+    }
+    
+    .experience-item h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+    
+    .experience-date {
+      color: var(--purple-color);
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    
+    /* ========== LISTS ========== */
+    .styled-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .styled-list li {
+      margin-bottom: 24px;
+      padding-left: 28px;
+      position: relative;
+    }
+    
+    .styled-list li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--purple-color);
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 50px;
+      }
+      
+      .nav-container {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .container {
+        padding: 30px 20px;
+      }
+      
+      .profile-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .profile-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .publication-item {
+        flex-direction: column;
+      }
+      
+      .pub-thumbnail {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      
+      .education-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .university-logo {
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
 
 
-<body class="is-preload">
-  <div id="wrapper-container">
-    <div id="profile">
-      <div class="profilePic">
-        <img src="./images/profilePic.jpg" />
+<body>
+  <!-- Top Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-title">Sakib Shahriar</a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="active">about</a></li>
+        <li><a href="#publications">publications</a></li>
+        <li><a href="#education">education</a></li>
+        <li><a href="#teaching">teaching</a></li>
+        <li><a href="#mentoring">mentoring</a></li>
+        <li><a href="#editorial">service</a></li>
+        <li><a href="#awards">awards</a></li>
+        <li><a href="./assets/CV_Sakib Shahriar.pdf" target="_blank">cv</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section" id="about">
+      <div class="profile-image-wrapper">
+        <img src="./images/profilePic.jpg" alt="Sakib Shahriar" class="profile-pic" />
+        <div class="profile-social">
+          <a href="mailto:sakibshahriar95@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://scholar.google.com/citations?user=YZWQ9eoAAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://github.com/sakibsh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sakibshahriar95/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.researchgate.net/profile/Sakib-Shahriar-4" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        </div>
       </div>
-      <div class="profileContent">
-        <h2>Sakib Shahriar</h2>
-        <p>Ph.D. candidate in Computer Science at the University of Guelph, specializing in AI and data privacy, with a
-          passion for teaching and innovative research.</p>
-        <div class="metaContent">
-          <div class="wrapper">
-            <i class="icon solid fa-map-marker-alt"></i>
-            <span>50 Stone Rd E, Guelph, ON, Canada</span>
+      
+      <div class="profile-content">
+        <h1>Sakib Shahriar</h1>
+        <p class="profile-subtitle">Ph.D. Candidate in Computer Science</p>
+        <p class="profile-bio">
+          Ph.D. candidate in Computer Science at the University of Guelph, specializing in AI, privacy of NLP & AI systems, large language models, and ethical AI, with a passion for teaching and innovative research.
+        </p>
+        <div class="profile-contact">
+          <span><i class="fas fa-university"></i> University of Guelph</span>
+          <span><i class="fas fa-map-marker-alt"></i> Guelph, ON, Canada</span>
+          <span><i class="fas fa-phone"></i> <a href="tel:+15197602953">(+1) 519 760 2953</a></span>
+        </div>
+      </div>
+    </section>
+
+<!-- Publications Section -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="stats-box">
+        35+ publications, 2200+ citations, 18 h-index - <a href="https://scholar.google.com/citations?user=YZWQ9eoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+      </div>
+      
+      <!-- Journal Papers -->
+      <h3>Journal Publications</h3>
+      
+      <div class="publication-item">
+        <div class="pub-thumbnail">
+          <img src="./images/publications/Mitigating_Authorship_Attribution.png" alt="Publication thumbnail" />
+        </div>
+        <div class="pub-details">
+          <div>
+            <span class="pub-badge">J1</span>
+            <span class="pub-title">Mitigating authorship attribution in social media texts: A privacy by translation approach</span>
           </div>
-          <div class="wrapper">
-            <i class="icon solid fa-file-alt"></i>
-            <span> <a href="./assets/CV_Sakib Shahriar.pdf" target="_blank">CV [06/2024]</a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon solid fa-phone-alt"></i>
-            <span> <a href="callto:(+1) 519 760 2953">(+1) 519 760 2953</a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon solid fa-envelope"></i>
-            <span><a href="mailto:sakibshahriar95@gmail.com">sakibshahriar95@gmail.com</a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon brands fa-linkedin"></i>
-            <span><a href="https://www.linkedin.com/in/sakibshahriar95/" target="_blank"><span
-                  class="label">Linkedin</span></a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon brands fa-google"></i>
-            <span><a href="https://scholar.google.com/citations?user=YZWQ9eoAAAAJ&hl=en&oi=ao" target="_blank"><span
-                  class="label">Google Scholar</span></a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon brands fa-github"></i>
-            <span><a href="https://github.com/sakibsh" target="_blank"><span class="label">Github</span></a></span>
-          </div>
-          <div class="wrapper">
-            <i class="icon brands fa-researchgate"></i>
-            <span><a href="https://www.researchgate.net/profile/Sakib-Shahriar-4" target="_blank"><span
-                  class="label">Researchgate</span></a></span>
+          <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Rozita Dara, and Fattane Zarrinkalam</div>
+          <div class="pub-venue">IEEE Access, vol. 13, pp. 185709-185725, 2025</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2025.3624312" target="_blank">Paper</a>
           </div>
         </div>
       </div>
-    </div>
-    <div id="wrapper">
-      <nav id="nav">
-        <ul>
-          <li><a href="#second">Research</a></li>
-          <li><a href="#education" class="active">Education</a></li>
-          <li><a href="#cta">Teaching</a></li>
-          <li><a href="#mentoring">Mentoring</a></li>
-          <li><a href="#honors">Honors and Awards</a></li>
-        </ul>
-      </nav>
-      <div id="main">
 
-<section id="second" class="main special">
-  <header class="major" data-aos="fade-up">
-    <h2>Publications</h2>
-  </header>
-  <div class="publicationsWrapper">
-    <!-- Existing Publications -->
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/1.png" alt="" />
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Quantum_Computing.png" alt="Publication thumbnail" />
+          </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J2</span>
+              Quantum Computing: A Concise Introduction
+          </div>
+            <div class="pub-authors">Brady D. Lund and <span class="me">Sakib Shahriar</span></div>
+            <div class="pub-venue">Encyclopedia, vol. 5, no. 4: 173, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/encyclopedia5040173" target="_blank">Paper</a>
+          </div>
+        </div>
       </div>
-      <div class="contentWrapper">
-        <h4>Generative AI and Large Language Models: A New Frontier in Reverse Vaccinology</h4>
-        <span class="authors">Kadhim Hayawi, <span>Sakib Shahriar,</span> Hany Alashwal, and Mohamed Adel Serhani.</span>
-        <span class="description"> Informatics in Medicine Unlocked, 2024</span>
-        <a href="https://doi.org/10.1016/j.imu.2024.101533" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+        
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Text_Data_Privacy_Review.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J3</span>
+              A Comprehensive Review of Current Trends, Challenges, and Opportunities in Text Data Privacy
+            </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Rozita Dara, and Rajen Akalu</div>
+            <div class="pub-venue">Computers & Security, vol.151, 104358, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.cose.2025.104358" target="_blank">Paper</a>
+            </div>
       </div>
     </div>
 
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/18.png" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Priv_IQ.png" alt="Publication thumbnail" />
       </div>
-      <div class="contentWrapper">
-        <h4>Climate Data Imputation and Quality Improvement Using Satellite Data</h4>
-        <span class="authors">Kadhim Hayawi, <span>Sakib Shahriar,</span> Hany Alashwal, and Mohamed Adel Serhani.</span>
-        <span class="description"> Journal of Data Science and Intelligent Systems, 2024</span>
-        <a href="https://doi.org/10.47852/bonviewJDSIS42022857" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J4</span>
+              Priv-IQ: A Benchmark and Comparative Evaluation of Large Multimodal Models on Privacy Competencies
+            </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span> and Rozita Dara</div>
+            <div class="pub-venue">AI, vol. 6, 2: 29, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/ai6020029" target="_blank">Paper</a>
+            </div>
       </div>
     </div>
     
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/2.png" alt="" />
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Recession_Prediction.png" alt="Publication thumbnail" />
       </div>
-      <div class="contentWrapper">
-        <h4>The imitation game: Detecting human and AI-generated texts in the era of ChatGPT and BARD.</h4>
-        <span class="authors">Kadhim Hayawi, <span>Sakib Shahriar,</span> and Sujith Mathew.</span>
-        <span class="description"> Journal of Information Science, 2024</span>
-        <a href="https://doi.org/10.1177/01655515241227531" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J5</span>
+              Diving into recession: the collective knowledge of online users as an early warning system for recessionary expectations
+      </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, Sujith Samuel Mathew et al.</div>
+            <div class="pub-venue">Information & Management, vol. 63, no.1, 104252, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.im.2025.104252" target="_blank">Paper</a>
+    </div>
+      </div>
+      </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/AI_Agrifood.png" alt="Publication thumbnail" />
+    </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J6</span>
+              The role of generative artificial intelligence in digital agri-food
+      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Maria G. Corradini, Shayan Sharif, Medhat Moussa, and Rozita Dara</div>
+            <div class="pub-venue">Journal of Agriculture and Food Research, vol. 20, 101787, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.jafr.2025.101787" target="_blank">Paper</a>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/3.png" alt="" />
       </div>
-      <div class="contentWrapper">
-        <h4>Artificial intelligence in developing countries: The impact of generative artificial intelligence (AI) technologies for development.</h4>
-        <span class="authors">Nishith Reddy Mannuru, <span>Sakib Shahriar</span>, Zoë A. Teel et al.</span>
-        <span class="description">Information Development, 2023</span>
-        <a href="https://doi.org/10.1177/02666669231200628" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/AI_Developing_Countries.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J7</span>
+              Artificial intelligence in developing countries: The impact of generative artificial intelligence (AI) technologies for development
+    </div>
+            <div class="pub-authors">Nishith Reddy Mannuru, <span class="me">Sakib Shahriar</span>, Zoë A. Teel et al.</div>
+            <div class="pub-venue">Information Development, vol.41, no.3, 1036-1054, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1177/02666669231200628" target="_blank">Paper</a>
+      </div>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/4.png" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Climate_Data_Imputation.png" alt="Publication thumbnail" />
       </div>
-      <div class="contentWrapper">
-        <h4>A Survey of Privacy Risks and Mitigation Strategies in the Artificial Intelligence Life Cycle.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> Sonal Allana, Mehdi Hazrati Fard, and Rozita Dara</span>
-        <span class="description"> IEEE Access, 2023</span>
-        <a href="https://doi.org/10.1109/ACCESS.2023.3287195" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J8</span>
+              Climate data imputation and quality improvement using satellite data
+      </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, and Hakim Hacid</div>
+            <div class="pub-venue">Journal of Data Science and Intelligent Systems, vol. 3, no. 2, 87-97, 2025</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.47852/bonviewJDSIS42022857" target="_blank">Paper</a>
+    </div>
+      </div>
+      </div>
+    
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/GPT4o_Evaluation.png" alt="Publication thumbnail" />
+    </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J9</span>
+              Putting gpt-4o to the sword: A comprehensive evaluation of language, vision, speech, and multimodal proficiency
+      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Brady D. Lund, Nishith Reddy Mannuru et al.</div>
+            <div class="pub-venue">Applied Sciences, vol. 14, no. 17, 2024</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/app14177782" target="_blank">Paper</a>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/5.png" alt="" />
       </div>
-      <div class="contentWrapper">
-        <h4>Let’s Have a Chat! A Conversation with ChatGPT: Technology, Applications, and Limitations.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> and Kadhim Hayawi.</span>
-        <span class="description"> Artificial Intelligence and Applications, 2023</span>
-        <a href="https://doi.org/10.47852/bonviewAIA3202939" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/AI_Reverse_Vaccinology.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J10</span>
+              Generative AI and Large Language Models: A New Frontier in Reverse Vaccinology
+    </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, Hany Alashwal, and Mohamed Adel Serhani</div>
+            <div class="pub-venue">Informatics in Medicine Unlocked, vol. 48, 101533, 2024</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.imu.2024.101533" target="_blank">Paper</a>
+      </div>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/6.png" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/AI_Text_Detection.png" alt="Publication thumbnail" />
       </div>
-      <div class="contentWrapper">
-        <h4>Classification of Arabic Poetry Emotions Using Deep Learning.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> Noora Al Roken, and Imran Zualkernan.</span>
-        <span class="description">Computers, vol. 12, 5, p.89, 2023</span>
-        <a href="https://doi.org/10.3390/computers12050089" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J11</span>
+              The imitation game: Detecting human and AI-generated texts in the era of ChatGPT and BARD
+      </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, and Sujith Mathew</div>
+            <div class="pub-venue">Journal of Information Science, 2024</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1177/01655515241227531" target="_blank">Paper</a>
+    </div>
+      </div>
+      </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Privacy_AI_Lifecycle.png" alt="Publication thumbnail" />
+    </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J12</span>
+              A Survey of Privacy Risks and Mitigation Strategies in the Artificial Intelligence Life Cycle
+      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Sonal Allana, Mehdi Hazrati Fard, and Rozita Dara</div>
+            <div class="pub-venue">IEEE Access, vol.11, pp. 61829-61854, 2023</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ACCESS.2023.3287195" target="_blank">Paper</a>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/7.png" alt="" />
       </div>
-      <div class="contentWrapper">
-        <h4>Machine Learning Approach for Smart Distribution Transformers Load Monitoring and Management System.</h4>
-        <span class="authors">Jayroop Ramesh, <span>Sakib Shahriar,</span> A. R. Al-Ali, Ahmed Osman, Mostafa F. Shaaban.</span>
-        <span class="description">Energies, vol. 15, 7981, 2022</span>
-        <a href="https://doi.org/10.3390/en15217981" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/ChatGPT_Conversation.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J13</span>
+              Let's Have a Chat! A Conversation with ChatGPT: Technology, Applications, and Limitations
+    </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span> and Kadhim Hayawi</div>
+            <div class="pub-venue">Artificial Intelligence and Applications, vol. 1, 1, 2023</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.47852/bonviewAIA3202939" target="_blank">Paper</a>
+      </div>
       </div>
     </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/8.png" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Arabic_Poetry_Emotions.png" alt="Publication thumbnail" />
       </div>
-      <div class="contentWrapper">
-        <h4>GAN Computers Generate Arts? A Survey on Visual Arts, Music, and Literary Text Generation using Generative Adversarial Network.</h4>
-        <span class="authors"><span>Sakib Shahriar.</span></span>
-        <span class="description">Displays, vol. 73, 102237, 2022</span>
-        <a href="https://doi.org/10.1016/j.displa.2022.102237" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J14</span>
+              Classification of Arabic Poetry Emotions Using Deep Learning
       </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/9.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>How can generative adversarial networks impact computer generated art? Insights from poetry to melody conversion.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> and Noora Al Roken.</span>
-        <span class="description">International Journal of Information Management Data Insights, vol. 2, 1, 2022</span>
-        <a href="https://doi.org/10.1016/j.jjimei.2022.100066" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/10.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Narrative Integrated Career Exploration Platform.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> Jayroop Ramesh, Mohammed Towheed, Taha Ameen, Assim Sagahyroon, A. R. Al-Ali.</span>
-        <span class="description">Frontiers in Education, vol. 7, 798950, 2022</span>
-        <a href="https://doi.org/10.3389/feduc.2022.798950" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/11.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Impacts of COVID-19 on Electric Vehicle Charging Behavior: Data Analytics, Visualization, and Clustering.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> and A. R. Al-Ali.</span>
-        <span class="description">Applied System Innovation, vol. 5, 12, 2022</span>
-        <a href="https://doi.org/10.3390/asi5010012" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/12.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>ANTi-Vax: A Novel Twitter Dataset for COVID-19 Vaccine Misinformation Detection.</h4>
-        <span class="authors">Kadhim Hayawi, <span>Sakib Shahriar,</span> Mohamed Serhani, Ikbal Taleb, and Sujith Mathew.</span>
-        <span class="description">Public Health, vol. 203, pp. 23–30, 2022</span>
-        <a href="https://doi.org/10.1016/j.puhe.2021.11.022" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/13.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Vaccine versus Variants (3Vs): Are the COVID-19 Vaccines Effective against the Variants? A Systematic Review.</h4>
-        <span class="authors">Kadhim Hayawi, <span>Sakib Shahriar,</span> Mohamed Serhani, Hany Alashwal, and Mohammad Masud.</span>
-        <span class="description">Vaccines, vol. 9, 1305, 2021</span>
-        <a href="https://doi.org/10.3390/vaccines9111305" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/14.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Prediction of EV Charging Behavior using Machine Learning.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> A. R. Al-Ali, Ahmed Osman, Salam Dhou, and Mais Nijim.</span>
-        <span class="description">IEEE Access, vol. 9, pp. 111576-111586, 2021</span>
-        <a href="https://doi.org/10.1109/ACCESS.2021.3103119" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/15.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Classifying Maqams of Qur’anic Recitations Using Deep Learning.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> and Usman Tariq.</span>
-        <span class="description">IEEE Access, vol. 9, pp. 117271-117281, 2021</span>
-        <a href="https://doi.org/10.1109/ACCESS.2021.3098415" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/16.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Impacts of brine disposal from water desalination plants on the physical environment in the Persian/Arabian Gulf.</h4>
-        <span class="authors">Edmo Campos, Filipe Vieira, Georgenes Cavalcante, Björn Kjerfve, Mohamed Abouleish, <span>Sakib Shahriar,</span> Reem Mohamed, and Arnold Gordon.</span>
-        <span class="description">Environmental Research Communications, vol. 2, no. 12, p. 125003, 2020</span>
-        <a href="https://doi.org/10.1088/2515-7620/abd0ed" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/publications/17.png" alt="" />
-      </div>
-      <div class="contentWrapper">
-        <h4>Machine learning approaches for EV charging behavior: A review.</h4>
-        <span class="authors"><span>Sakib Shahriar,</span> A. R. Al-Ali, Ahmed Osman, Salam Dhou, and Mais Nijim.</span>
-        <span class="description">IEEE Access, vol. 8, pp. 168980-168993, 2020</span>
-        <a href="https://doi.org/10.1109/ACCESS.2020.3023388" target="_blank"><i class="icon solid fa-link"></i> PAPER</a>
-      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Noora Al Roken, and Imran Zualkernan</div>
+            <div class="pub-venue">Computers, vol. 12, 5, p.89, 2023</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/computers12050089" target="_blank">Paper</a>
     </div>
   </div>
-</section>
+        </div>
 
-<section id="conference" class="main special">
-  <header class="major" data-aos="fade-up">
-    <h2>Refereed Conference Papers</h2>
-  </header>
-  <ul class="features">
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Smart_Distribution_Transformers.png" alt="Publication thumbnail" />
         </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3>Kadhim Hayawi, <span style="font-weight:bold;">Sakib Shahriar</span>, and Hany Alashwal. "Leveraging Nucleotide Dependencies for Improved mRNA Vaccine Degradation Prediction."</h3>
-          <p>2023 20th ACS/IEEE International Conference on Computer Systems and Applications (AICCSA), pp. 1-6. IEEE, 2023, doi: <a href="https://doi.org/10.1109/AICCSA59173.2023.10479233" target="_blank">10.1109/AICCSA59173.2023.10479233</a>.</p>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J15</span>
+              Machine Learning Approach for Smart Distribution Transformers Load Monitoring and Management System
+        </div>
+            <div class="pub-authors">Jayroop Ramesh, <span class="me">Sakib Shahriar</span>, A. R. Al-Ali, Ahmed Osman, Mostafa F. Shaaban</div>
+            <div class="pub-venue">Energies, vol. 15, 7981, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/en15217981" target="_blank">Paper</a>
+      </div>
+        </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/GAN_Arts_Survey.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J16</span>
+              GAN Computers Generate Arts? A Survey on Visual Arts, Music, and Literary Text Generation using Generative Adversarial Network
+        </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span></div>
+            <div class="pub-venue">Displays, vol. 73, 102237, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.displa.2022.102237" target="_blank">Paper</a>
         </div>
       </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
         </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3><span style="font-weight:bold;">Sakib Shahriar</span>, Rozita Dara, and Kadhim Hayawi. “On the Impact of Deep Learning and Feature Extraction for Arabic Audio Classification and Speaker Identification.”</h3>
-          <p>2022 IEEE/ACS 19th International Conference on Computer Systems and Applications (AICCSA), pp. 1-8, 2022, doi: <a href="https://doi.org/10.1109/AICCSA56895.2022.10017889" target="_blank">10.1109/AICCSA56895.2022.10017889</a>.</p>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Poetry_to_Melody.png" alt="Publication thumbnail" />
+        </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J17</span>
+              How can generative adversarial networks impact computer generated art? Insights from poetry to melody conversion
+      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span> and Noora Al Roken</div>
+            <div class="pub-venue">International Journal of Information Management Data Insights, vol. 2, 1, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.jjimei.2022.100066" target="_blank">Paper</a>
+        </div>
         </div>
       </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Career_Exploration_Platform.png" alt="Publication thumbnail" />
         </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3><span style="font-weight:bold;">Sakib Shahriar</span> and Kadhim Hayawi. "NFTGAN: Non-Fungible Token Art Generation Using Generative Adversarial Networks."</h3>
-          <p>2022 7th International Conference on Machine Learning Technologies (ICMLT), pp. 255-259, 2022, doi: <a href="https://doi.org/10.1145/3529399.3529439" target="_blank">10.1145/3529399.3529439</a>.</p>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J18</span>
+              Narrative Integrated Career Exploration Platform
+        </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, Jayroop Ramesh, Mohammed Towheed, Taha Ameen, Assim Sagahyroon, A. R. Al-Ali</div>
+            <div class="pub-venue">Frontiers in Education, vol. 7, 798950, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3389/feduc.2022.798950" target="_blank">Paper</a>
+      </div>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/EV_Charging_COVID.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J19</span>
+              Impacts of COVID-19 on Electric Vehicle Charging Behavior: Data Analytics, Visualization, and Clustering
+      </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span> and A. R. Al-Ali</div>
+            <div class="pub-venue">Applied System Innovation, vol. 5, 12, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/asi5010012" target="_blank">Paper</a>
+    </div>
+      </div>
+      </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/COVID_Vaccine_Misinformation.png" alt="Publication thumbnail" />
+    </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J20</span>
+              ANTi-Vax: A Novel Twitter Dataset for COVID-19 Vaccine Misinformation Detection
+  </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, Mohamed Serhani, Ikbal Taleb, and Sujith Mathew</div>
+            <div class="pub-venue">Public Health, vol. 203, pp. 23–30, 2022</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1016/j.puhe.2021.11.022" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Vaccine_Variants.png" alt="Publication thumbnail" />
+              </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J21</span>
+              Vaccine versus Variants (3Vs): Are the COVID-19 Vaccines Effective against the Variants? A Systematic Review
+            </div>
+            <div class="pub-authors">Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, Mohamed Serhani, Hany Alashwal, and Mohammad Masud</div>
+            <div class="pub-venue">Vaccines, vol. 9, 1305, 2021</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.3390/vaccines9111305" target="_blank">Paper</a>
+              </div>
+            </div>
+              </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/EV_Charging_Prediction.png" alt="Publication thumbnail" />
+            </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J22</span>
+              Prediction of EV Charging Behavior using Machine Learning
+              </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, A. R. Al-Ali, Ahmed Osman, Salam Dhou, and Mais Nijim</div>
+            <div class="pub-venue">IEEE Access, vol. 9, pp. 111576-111586, 2021</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ACCESS.2021.3103119" target="_blank">Paper</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Quran_Maqams.png" alt="Publication thumbnail" />
+              </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J23</span>
+              Classifying Maqams of Qur'anic Recitations Using Deep Learning
+            </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span> and Usman Tariq</div>
+            <div class="pub-venue">IEEE Access, vol. 9, pp. 117271-117281, 2021</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ACCESS.2021.3098415" target="_blank">Paper</a>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/Desalination_Impact.png" alt="Publication thumbnail" />
+        </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J24</span>
+              Impacts of brine disposal from water desalination plants on the physical environment in the Persian/Arabian Gulf
+        </div>
+            <div class="pub-authors">Edmo Campos, Filipe Vieira, Georgenes Cavalcante, Björn Kjerfve, Mohamed Abouleish, <span class="me">Sakib Shahriar</span>, Reem Mohamed, and Arnold Gordon</div>
+            <div class="pub-venue">Environmental Research Communications, vol. 2, no. 12, p. 125003, Dec. 2020</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1088/2515-7620/abd0ed" target="_blank">Paper</a>
+      </div>
+        </div>
+        </div>
+
+        <div class="publication-item">
+          <div class="pub-thumbnail">
+            <img src="./images/publications/EV_Charging_Review.png" alt="Publication thumbnail" />
+      </div>
+          <div class="pub-details">
+            <div class="pub-title">
+              <span class="pub-badge">J25</span>
+              Machine learning approaches for EV charging behavior: A review
+        </div>
+            <div class="pub-authors"><span class="me">Sakib Shahriar</span>, A. R. Al-Ali, Ahmed Osman, Salam Dhou, and Mais Nijim</div>
+            <div class="pub-venue">IEEE Access, vol. 8, pp. 168980-168993, 2020</div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ACCESS.2020.3023388" target="_blank">Paper</a>
         </div>
       </div>
+        </div>
+      </section>
+
+      <!-- Conference Papers -->
+      <section id="conference">
+        <h3>Conference Publications</h3>
+        
+        <ul class="styled-list">
+          <li>
+            <strong>[C1]</strong> Kadhim Hayawi and <span class="me">Sakib Shahriar</span>. "Dear LLM, Why Are They Complaining? On Root Cause Analysis (RCA) In Customer Service Automation Using Large Language Models (LLMS)."
+            <br>
+            <em>2025 IEEE 5th International Conference on Human-Machine Systems (ICHMS), pp. 338-343. IEEE, 2025.</em>
+            <br>
+            <a href="https://doi.org/10.1109/ICHMS65439.2025.11154153" target="_blank">DOI: 10.1109/ICHMS65439.2025.11154153</a>
     </li>
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
-        </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3>Muhammad Arbab Arshad, <span style="font-weight:bold;">Sakib Shahriar</span>, and Assim Sagahyroon. "On the Use of FPGAs to Implement CNNs: A Brief Review."</h3>
-          <p>2020 International Conference on Computing, Electronics & Communications Engineering (iCCECE), pp. 230-236, 2020, doi: <a href="https://doi.org/10.1109/iCCECE49321.2020.9231243" target="_blank">10.1109/iCCECE49321.2020.9231243</a>.</p>
-        </div>
-      </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
-        </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3>Felipe Vieira, Edmo J. Campos, Georgenes Cavalcante, Mohamed Abouleish, <span style="font-weight:bold;">Sakib Shahriar</span>, and Reem Mohamed. "Salt Budget in the Arabian Gulf and Effects of Water Desalination."</h3>
-          <p>Ocean Sciences Meeting 2020. AGU, 2020.</p>
-        </div>
-      </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="conference-paper" style="display: flex; align-items: center;">
-        <div class="conference-icon">
-          <img src="./images/conference.png" width="60" alt="" />
-        </div>
-        <div class="conference-content" style="margin-left: 20px;">
-          <h3>Imran Zualkernan, Michel Pasquier, <span style="font-weight:bold;">Sakib Shahriar</span>, Mohammed Towheed, and Shilpa Sujith. "Using BLE beacons and machine learning for personalized customer experience in smart Cafés."</h3>
-          <p>2020 International Conference on Electronics, Information, and Communication (ICEIC), pp. 1-6, 2020, doi: <a href="https://doi.org/10.1109/ICEIC49074.2020.9051187" target="_blank">10.1109/ICEIC49074.2020.9051187</a>.</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
+          <li>
+            <strong>[C2]</strong> Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, and A. R. Al-Ali. "Ethical Considerations in Artificial Intelligence (AI) Applications in Smart Grid."
+            <br>
+            <em>2025 7th International Youth Conference on Radio Electronics, Electrical and Power Engineering (REEPE), pp. 1-6. IEEE, 2025.</em>
+            <br>
+            <a href="https://doi.org/10.1109/REEPE63962.2025.10971096" target="_blank">DOI: 10.1109/REEPE63962.2025.10971096</a>
+          </li>
+          <li>
+            <strong>[C3]</strong> <span class="me">Sakib Shahriar</span> and Rozita Dara. "PriSM: Privacy-Preserving Social Media Text Processing and Analytics Framework."
+            <br>
+            <em>2024 IEEE International Conference on Data Mining Workshops (ICDMW), pp. 59-66. IEEE, 2024.</em>
+            <br>
+            <a href="https://doi.org/10.1109/ICDMW65004.2024.00014" target="_blank">DOI: 10.1109/ICDMW65004.2024.00014</a>
+          </li>
+          <li>
+            <strong>[C4]</strong> Kadhim Hayawi and <span class="me">Sakib Shahriar</span>. "Care-by-Design: Enhancing Customer Experience through Empathetic AI Chatbots."
+            <br>
+            <em>2024 IEEE International Conference on Data Mining Workshops (ICDMW), pp. 75-81. IEEE, 2024.</em>
+            <br>
+            <a href="https://doi.org/10.1109/ICDMW65004.2024.00016" target="_blank">DOI: 10.1109/ICDMW65004.2024.00016</a>
+          </li>
+          <li>
+            <strong>[C5]</strong> Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, and Hakim Hacid. "On Digital Art Generation Using Generative Adversarial Networks."
+            <br>
+            <em>2024 International Conference on Electrical, Computer and Energy Technologies (ICECET), pp. 1-6. IEEE, 2024.</em>
+            <br>
+            <a href="https://doi.org/10.1109/ICECET61485.2024.10698003" target="_blank">DOI: 10.1109/ICECET61485.2024.10698003</a>
+          </li>
+          <li>
+            <strong>[C6]</strong> Kadhim Hayawi, <span class="me">Sakib Shahriar</span>, and Hany Alashwal. "Leveraging Nucleotide Dependencies for Improved mRNA Vaccine Degradation Prediction."
+            <br>
+            <em>2023 20th ACS/IEEE International Conference on Computer Systems and Applications (AICCSA), pp. 1-6. IEEE, 2023.</em>
+            <br>
+            <a href="https://doi.org/10.1109/AICCSA59173.2023.10479233" target="_blank">DOI: 10.1109/AICCSA59173.2023.10479233</a>
+          </li>
+          <li>
+            <strong>[C7]</strong> <span class="me">Sakib Shahriar</span>, Rozita Dara, and Kadhim Hayawi. "On the Impact of Deep Learning and Feature Extraction for Arabic Audio Classification and Speaker Identification."
+            <br>
+            <em>2022 IEEE/ACS 19th International Conference on Computer Systems and Applications (AICCSA), pp. 1-8, 2022.</em>
+            <br>
+            <a href="https://doi.org/10.1109/AICCSA56895.2022.10017889" target="_blank">DOI: 10.1109/AICCSA56895.2022.10017889</a>
+          </li>
+          <li>
+            <strong>[C8]</strong> <span class="me">Sakib Shahriar</span> and Kadhim Hayawi. "NFTGAN: Non-Fungible Token Art Generation Using Generative Adversarial Networks."
+            <br>
+            <em>2022 7th International Conference on Machine Learning Technologies (ICMLT), pp. 255-259, 2022.</em>
+            <br>
+            <a href="https://doi.org/10.1145/3529399.3529439" target="_blank">DOI: 10.1145/3529399.3529439</a>
+          </li>
+          <li>
+            <strong>[C9]</strong> Muhammad Arbab Arshad, <span class="me">Sakib Shahriar</span>, and Assim Sagahyroon. "On the Use of FPGAs to Implement CNNs: A Brief Review."
+            <br>
+            <em>2020 International Conference on Computing, Electronics & Communications Engineering (iCCECE), pp. 230-236, 2020.</em>
+            <br>
+            <a href="https://doi.org/10.1109/iCCECE49321.2020.9231243" target="_blank">DOI: 10.1109/iCCECE49321.2020.9231243</a>
+          </li>
+          <li>
+            <strong>[C10]</strong> Felipe Vieira, Edmo J. Campos, Georgenes Cavalcante, Mohamed Abouleish, <span class="me">Sakib Shahriar</span>, and Reem Mohamed. "Salt Budget in the Arabian Gulf and Effects of Water Desalination."
+            <br>
+            <em>Ocean Sciences Meeting 2020. AGU, 2020.</em>
+          </li>
+          <li>
+            <strong>[C11]</strong> Imran Zualkernan, Michel Pasquier, <span class="me">Sakib Shahriar</span>, Mohammed Towheed, and Shilpa Sujith. "Using BLE beacons and machine learning for personalized customer experience in smart Cafés."
+            <br>
+            <em>2020 International Conference on Electronics, Information, and Communication (ICEIC), pp. 1-6, 2020.</em>
+            <br>
+            <a href="https://doi.org/10.1109/ICEIC49074.2020.9051187" target="_blank">DOI: 10.1109/ICEIC49074.2020.9051187</a>
+          </li>
+        </ul>
+      </section>
 
   
 
-<section id="education" class="main">
-  <header class="major" data-aos="fade-up">
-    <center><h2>Education</h2></center>
-  </header>
-  <div class="publicationsWrapper">
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/university_of_guelph_image.jpg" alt="University of Guelph" />
-      </div>
-      <div class="contentWrapper">
-        <h4>University of Guelph</h4>
-        <p>
-          <b>PhD in Computer Science</b><br />
-          <b>Research Interests</b>: Large Language Models, Social Media Privacy, Ethical AI, Text Data Privacy <br />
-        </p>
-        <span class="description">May 2022 – May 2026 (Expected)</span>
-      </div>
-    </div>
-    <div class="publication-common" data-aos="fade-right">
-      <div class="publicationImage">
-        <img src="./images/american_university_of_sharjah_image.jpg" alt="American University of Sharjah" />
-      </div>
-      <div class="contentWrapper">
-        <h4>American University of Sharjah</h4>
-        <p>
-          <b>MSc in Computer Engineering</b><br />
-          <b>Thesis</b>: “Machine Learning-Based Approach for EV Charging Behavior” <br />
-        </p>
-        <span class="description">Jan 2019 – June 2021</span>
-        <p>
-          <b>BSc in Computer Engineering</b><br />
-          <b>Concentration</b>: Artificial Intelligence and Internet of Things <br />
-        </p>
-        <span class="description">Sep 2014 – Dec 2018</span>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      
+      <div class="education-grid">
+        <div class="education-card">
+          <div class="university-logo">
+            <img src="./images/university_of_guelph_image.jpg" alt="University of Guelph" />
+          </div>
+          <div class="education-details">
+            <h3>University of Guelph</h3>
+            <div class="education-degree">Ph.D. in Computer Science</div>
+            <div class="education-date">May 2022 – June 2026 (Expected)</div>
+            <div class="education-info">
+              <p><strong>Research area:</strong> Privacy of NLP & AI systems</p>
+              <p><strong>CGPA:</strong> 95.3% (4.0/4.0)</p>
+            </div>
+          </div>
+        </div>
 
-        <!-- Get Started -->
-        <section id="cta" class="main special">
-          <header class="major">
-            <div class="spotlight exp-list">
-              <div class="content" data-aos="fade-up" data-aos-delay="300">
-                <header class="major layout exp-list">
-                  <h3>Teaching Experience</h3>
-                </header>
-              </div>
+        <div class="education-card">
+          <div class="university-logo">
+            <img src="./images/american_university_of_sharjah_image.jpg" alt="American University of Sharjah" />
+          </div>
+          <div class="education-details">
+            <h3>American University of Sharjah</h3>
+            
+            <div class="education-degree">M.Sc. in Computer Engineering</div>
+            <div class="education-date">January 2019 – June 2021</div>
+            <div class="education-info">
+              <p><strong>Thesis:</strong> "Machine Learning-Based Approach for EV Charging Behavior"</p>
+              <p><strong>Specialization:</strong> Machine Learning and Big Data Analytics</p>
             </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    University of Guelph, School of Computer Science
-                    <p>
-                      Graduate Teaching Assistant <br /><span class="address">Supervising the instruction of Information
-                        Retrieval
-                        graduate course with grading and conducting lab
-                        sessions.</span>
-                    </p>
-                  </h3>
-                  <h3 class="year">Guelph, ON, Canada September 2022 – Present</h3>
-                </header>
-              </div>
+            
+            <div class="education-degree" style="margin-top: 20px;">B.Sc. in Computer Engineering</div>
+            <div class="education-date">September 2014 – December 2018</div>
+            <div class="education-info">
+              <p><strong>Concentration:</strong> Artificial Intelligence and Internet of Things</p>
+              <p><strong>Senior Project:</strong> "An AIoT-based Smart Cafe System"</p>
             </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    American University of Sharjah, Department of Computer
-                    Science & Engineering
-                    <p>
-                      Graduate Teaching Assistant <br />
-                      Supervised alongside faculty members in instruction of undergraduate labs, exams, and grading work. Courses supervised: Digital Systems and FPGA Design, Introduction to Programming.
-                    </p>
-                  </h3>
-                  <h3 class="year">Abu Dhabi, UAE June 2021 – June 2022</h3>
-                </header>
-              </div>
-            </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    American University of Sharjah, Gulf Environments Research Institute
-            <p>
-              Graduate Research Assistant/Teacher Assistant <br />
-              Worked with Dr. Edmo Campos’ research team on environmental impacts of desalination, including effects of desalination plants on Arabian/Persian Gulf temperature and marine lives. Assisted in the instruction of Communications Network undergraduate course.
-            </p>
-                  </h3>
-                  <h3 class="year">Sharjah, UAE September 2018 - June 2020</h3>
-                </header>
-              </div>
-            </div>
-          </header>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <header class="major">
-            <div class="spotlight exp-list">
-              <div class="content" data-aos="fade-up" data-aos-delay="300">
-                <header class="major layout exp-list">
-                  <h3>Workshops Conducted</h3>
-                </header>
-              </div>
-            </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    University of Guelph, McLaughlin Library
-                    <p>
-                      Writing the Literature Review Workshop for IDEV 3300
-                      <br /><span class="address">
-                        Conducted a 50-minute workshop for 30 undergraduates, focusing on research questions, organizing literature, and integrating sources. Utilized interactive discussions and multimedia tools to enhance engagement.
-                      </span>
-                    </p>
-                  </h3>
-                  <h3 class="year">Guelph, ON, Canada <br />January 2024 </h3>
-                </header>
-              </div>
-            </div>
-          </header>
-        </section>
+<!-- Teaching -->
+      <section id="teaching">
+        <h2>Teaching Experience</h2>
+        
+        <div class="experience-item">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="experience-date">September 2022 – Present</div>
+          <p><strong>University of Guelph</strong>, School of Computer Science</p>
+          <p>Facilitated with the instruction of Data Manipulation & Visualization, Theory of Computation, Analysis of Big Data, Software for Legacy Systems, Information Retrieval, Privacy in AI, Writing Support TA, and Software Architecture of AI Systems.</p>
+        </div>
 
-        <section id="talks" class="main special">
-  <header class="major" data-aos="fade-up">
-    <h2>Talks</h2>
-  </header>
-  <ul class="features">
-    <li data-aos="fade-right">
-      <div class="talk">
-        <div class="talk-icon">
-          <img src="./images/talk.png" width="60" alt="" />
+        <div class="experience-item">
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="experience-date">January 2019 – June 2020</div>
+          <p><strong>American University of Sharjah</strong>, Department of Computer Science & Engineering</p>
+          <p>Supervised undergraduate labs, exams, and grading. Courses: Digital systems and FPGA design, Introduction to programming.</p>
         </div>
-        <div class="talk-content">
-          <h3>The Use of AI for Effective Writing and Consultation</h3>
-          <p>Professional Development session, McLaughlin Library, University of Guelph, 2024</p>
-        </div>
+
+        <div class="experience-item">
+          <h3>Teacher Assistant</h3>
+          <div class="experience-date">September 2018 – December 2018</div>
+          <p><strong>American University of Sharjah</strong>, Department of Computer Science & Engineering</p>
+          <p>Assisted in facilitating Communications Network undergraduate course.</p>
       </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="talk">
-        <div class="talk-icon">
-          <img src="./images/talk.png" width="60" alt="" />
+      </section>
+
+
+      <!-- Workshops -->
+      <section>
+        <h3>Workshops Conducted</h3>
+        
+        <div class="experience-item">
+          <h4>Academic Writing Workshop for ENGG*3100 Engineering and Design III</h4>
+          <div class="experience-date">February 2025</div>
+          <p><strong>University of Guelph</strong>, McLaughlin Library</p>
+          <p>Led two 90-minute, in-person sessions for ENGG*3100, guiding undergraduate engineers through constructing persuasive arguments while sharpening cohesion and clarity. Quick mini lessons on paragraph architecture, reverse outlining, and concision were paired with hands-on revision drills and peer critiques, enabling students to diagnose and strengthen their drafts in real time.</p>
         </div>
-        <div class="talk-content">
-          <h3>Current Trends, Challenges, Solutions, and Research Gaps in Text Data Privacy</h3>
-          <p>Doctoral Seminar Presentation, School of Computer Science, University of Guelph, 2023</p>
+
+        <div class="experience-item">
+          <h4>Writing the Literature Review Workshop for IDEV 3300: Engaging in Development Practice</h4>
+          <div class="experience-date">January 2024</div>
+          <p><strong>University of Guelph</strong>, McLaughlin Library</p>
+          <p>Conducted a 50-minute in-person workshop for 30 undergraduate students in the College of Social and Applied Human Sciences at the University of Guelph. This workshop focused on developing and refining research questions, organizing literature, and integrating sources to create coherent and impactful reviews.</p>
         </div>
-      </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="talk">
-        <div class="talk-icon">
-          <img src="./images/talk.png" width="60" alt="" />
-        </div>
-        <div class="talk-content">
-          <h3>Machine Learning-Based Approach for EV Charging Behavior: Current Trends and Prospects</h3>
-          <p>Master Seminar, American University of Sharjah, 2021</p>
-        </div>
-      </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="talk">
-        <div class="talk-icon">
-          <img src="./images/talk.png" width="60" alt="" />
-        </div>
-        <div class="talk-content">
-          <h3>A data visualization approach for the identification of faulty sensors in multiple ground weather station data</h3>
-          <p>Research talk, R&D Department, Dubai Electricity and Water Authority (DEWA), 2020</p>
-        </div>
-      </div>
-    </li>
-    <li data-aos="fade-right">
-      <div class="talk">
-        <div class="talk-icon">
-          <img src="./images/talk.png" width="60" alt="" />
-        </div>
-        <div class="talk-content">
-          <h3>Wildlife Management using Computer Vision</h3>
-          <p>ADDATHON hackathon organized by ADDA (Runners up), 2019</p>
-        </div>
-      </div>
+      </section>
+
+      <!-- Talks -->
+      <section>
+        <h3>Invited Talks</h3>
+        <ul class="styled-list">
+          <li>
+            <strong>The Use of AI for Effective Writing and Consultation</strong>
+            <br>
+            <em>Professional Development session, McLaughlin Library, University of Guelph, 2024</em>
+          </li>
+          <li>
+            <strong>Current Trends, Challenges, Solutions, and Research Gaps in Text Data Privacy</strong>
+            <br>
+            <em>Doctoral Seminar Presentation, School of Computer Science, University of Guelph, 2023</em>
+          </li>
+          <li>
+            <strong>Machine Learning-Based Approach for EV Charging Behavior: Current Trends and Prospects</strong>
+            <br>
+            <em>Master Seminar, American University of Sharjah, 2021</em>
+          </li>
+          <li>
+            <strong>A data visualization approach for the identification of faulty sensors in multiple ground weather station data</strong>
+            <br>
+            <em>Research talk, R&D Department, Dubai Electricity and Water Authority (DEWA), 2020</em>
+          </li>
+          <li>
+            <strong>Wildlife Management using Computer Vision</strong>
+            <br>
+            <em>ADDATHON hackathon organized by ADDA (Runners up), 2019</em>
     </li>
   </ul>
 </section>
         
-        <section id="mentoring" class="main special">
-          <header class="major">
-            <h2 data-aos="fade-up" data-aos-delay="300">Mentoring</h2>
-          </header>
-          <header class="major">
-            <div class="spotlight exp-list">
-              <div class="content" data-aos="fade-up" data-aos-delay="300">
-                <header class="major layout exp-list">
-                  <h3>Student Supervision And Mentorship</h3>
-                </header>
-              </div>
-            </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    Ala Abu Hilal
-                    <p>
-                      <span class="address"> Ala successfully defended his Master's thesis in December 2022. I mentored his research work alongside Dr. Kadhim Hayawi, who was the primary advisor.</span>
-                    </p>
-                  </h3>
-                  <h3 class="year"><b>Master of Science in Information Technology</b> <br /> Zayed University, Abu Dhabi, UAE</h3>
-                </header>
-              </div>
-            </div>
-            <div class="spotlight experience-details" data-aos="fade-right">
-              <div class="content">
-                <header class="major layout">
-                  <h3>
-                    Reem Mohamed
-                    <p>
-                      <span class="address">Reem completed her undergraduate thesis in February 2020. I supervised her experiments alongside Dr. Edmo Campos to find the impacts of salinity on coral larvae. Her work resulted in two publications.</span>
-                    </p>
-                  </h3>
-                  <h3 class="year"><b>B. Sc. in Environmental Sciences</b> <br />  American University of Sharjah, Sharjah, UAE</h3>
-                </header>
-              </div>
-            </div>
-          </header>
-        </section>
-
-
-        <!-- First Section -->
-        <section id="honors" class="main special">
-          <header class="major" data-aos="fade-up">
-            <h2>Honors and Awards</h2>
-          </header>
-          <ul class="features">
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    School of Computer Science Summer Doctoral Scholarship, U of Guelph
-                  </h3>
-                  <p>April 2024 </p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    CSE Student Travel Grant awarded $1000 for attending the 19th International Conference on
-                    Computer Systems and Applications (2022)
-                  </h3>
-                  <p>January 2023 </p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    International Conference on Machine Learning Technologies
-                    (ICMLT) 2022 Best Paper Presentation Award
-                  </h3>
-                  <p>March 2022</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    2020/21 AUS Graduate Student Research, Scholarly and
-                    Creative Excellence Award, American University of Sharjah
-                    (AUS)
-                  </h3>
-                  <p>June 2021</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    CSE Graduate Research Excellence Award, Comp. Science & Eng.
-                    Dept, AUS, 2020
-                  </h3>
-                  <p>April 2021</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    Full Graduate Research Fellowship, Office of Graduate
-                    Studies, AUS
-                  </h3>
-                  <p>September 2019 – June 2021</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    Graduate Teaching Assistantship – Comp. Science & Eng.
-                    Dept., AUS
-                  </h3>
-                  <p>January 2019 – June 2019</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>ODAA Pioneer Scholarship - AUS Alumni Pioneer</h3>
-                  <p>September 2018 – December 2018</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>Hamid Jafer Scholarship, AUS</h3>
-                  <p>September 2017 – June 20018</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>
-                    American University of Sharjah Undergraduate Scholarship,
-                    AUS
-                  </h3>
-                  <p>September 2014 – December 2018</p>
-                </div>
-              </div>
-            </li>
-            <li data-aos="fade-right">
-              <div class="honors">
-                <div class="honor-icon">
-                  <img src="./images/awards.png" width="60" alt="" />
-                </div>
-                <div class="honor-content">
-                  <h3>Dean’s List Scholarship, AUS</h3>
-                  <p>January 2017 – September 2017</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </section>
-
+      <!-- Mentoring -->
+      <section id="mentoring">
+        <h2>Mentoring</h2>
+        <h3>Student Supervision and Mentorship</h3>
         
-      </div>
-    </div>
+        <div class="experience-item">
+          <h4>Ala Abu Hilal</h4>
+          <div class="experience-date">Master of Science in Information Technology</div>
+          <p><strong>Zayed University</strong>, Abu Dhabi, UAE</p>
+          <p>Ala successfully defended his Master's thesis in December 2022. I mentored his research work alongside Dr. Kadhim Hayawi, who was the primary advisor.</p>
+        </div>
+
+        <div class="experience-item">
+          <h4>Reem Mohamed</h4>
+          <div class="experience-date">B.Sc. in Environmental Sciences</div>
+          <p><strong>American University of Sharjah</strong>, Sharjah, UAE</p>
+          <p>Reem completed her undergraduate thesis in February 2020. I supervised her experiments alongside Dr. Edmo Campos to find the impacts of salinity on coral larvae. Her work resulted in two publications.</p>
+        </div>
+      </section>
+
+<!-- Editorial and Academic Service -->
+      <section id="editorial">
+        <h2>Editorial and Academic Service</h2>
+        
+        <h3>Committee Memberships</h3>
+        <div class="experience-item">
+          <h4>Committee Member, CWCA/ACCR 2026 Annual Conference</h4>
+          <div class="experience-date">2025-2026</div>
+          <p>Co-developed and disseminated Call for Papers; advised on program formats and keynotes. Assisted with proposal reviews and selection of the Assistant Conference Chair. Supported conference operations (registration, tech, session moderation) and promotion.</p>
+        </div>
+        
+        <h3>Editorial Roles</h3>
+        <div class="experience-item">
+          <h4>Handling Editor</h4>
+          <div class="experience-date">2025-Present</div>
+          <p><strong>Frontiers in Robotics and AI</strong></p>
+          <p>Perform initial technical and ethical suitability checks and desk-reject when appropriate. Coordinate timely peer review, inviting additional reviewers as needed. Mediate author–reviewer dialogue; ensure rigorous, fair editorial decisions.</p>
+        </div>
+        
+        <h3>Journal Review Boards</h3>
+        <ul class="styled-list">
+          <li>IEEE Access Journal (2020 – Present)</li>
+          <li>Computers in Biology and Medicine (2021 – Present)</li>
+          <li>Journal of Ambient Intelligence and Humanized Computing (2022 – Present)</li>
+          <li>IEEE Transactions on Network and Service Management (2022 – Present)</li>
+          <li>Applied Intelligence (2023 – Present)</li>
+          <li>PLOS One (2023 – Present)</li>
+        </ul>
+      </section>
+
+<!-- Awards -->
+      <section id="awards">
+        <h2>Honors and Awards</h2>
+        
+        <ul class="styled-list">
+          <li>
+            <strong>School of Computer Science (SoCS) 2025 Summer Doctoral Scholarship</strong>, University of Guelph
+            <br><em>April 2025</em>
+          </li>
+          <li>
+            <strong>Braithwaite Conference Travel Grant</strong> awarded $2950 for presenting at the 2024 IEEE International Conference on Data Mining (ICDM)
+            <br><em>November 2024</em>
+          </li>
+          <li>
+            <strong>School of Computer Science (SoCS) 2024 Summer Doctoral Scholarship</strong>, University of Guelph
+            <br><em>April 2024</em>
+          </li>
+          <li>
+            <strong>SoCS Travel Grant</strong> awarded $1000 for presenting at the 19th International Conference on Computer Systems and Applications (2022)
+            <br><em>January 2023</em>
+          </li>
+          <li>
+            <strong>International Conference on Machine Learning Technologies (ICMLT) 2022 Best Paper Presentation Award</strong>
+            <br><em>March 2022</em>
+          </li>
+          <li>
+            <strong>2020/21 AUS Graduate Student Research, Scholarly and Creative Excellence Award</strong>, American University of Sharjah
+            <br><em>June 2021</em>
+          </li>
+          <li>
+            <strong>CSE Graduate Research Excellence Award</strong>, Computer Science & Engineering Department, AUS, 2020
+            <br><em>April 2021</em>
+          </li>
+          <li>
+            <strong>Full Graduate Research Fellowship</strong>, Office of Graduate Studies, AUS
+            <br><em>September 2019 – June 2021</em>
+          </li>
+          <li>
+            <strong>Graduate Teaching Assistantship</strong>, Computer Science & Engineering Department, AUS
+            <br><em>January 2019 – June 2019</em>
+          </li>
+          <li>
+            <strong>ODAA Pioneer Scholarship</strong> - AUS Alumni Pioneer
+            <br><em>September 2018 – December 2018</em>
+          </li>
+          <li>
+            <strong>Hamid Jafer Scholarship</strong>, AUS
+            <br><em>September 2017 – June 2018</em>
+          </li>
+          <li>
+            <strong>American University of Sharjah Undergraduate Scholarship</strong>, AUS
+            <br><em>September 2014 – December 2018</em>
+          </li>
+          <li>
+            <strong>Dean's List Scholarship</strong>, AUS
+            <br><em>January 2017 – September 2017</em>
+          </li>
+        </ul>
+      </section>
+
+    </main>
   </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
 </body>
 
 </html>
+
+

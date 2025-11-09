@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Options - Sakib Shahriar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: #f8f9fa;
+      padding: 40px 20px;
+      color: #1a1a1a;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { 
+      text-align: center; 
+      font-size: 48px; 
+      margin-bottom: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 60px;
+      font-size: 18px;
+    }
+    .designs { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .design-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .design-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .design-header {
+      padding: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .design-header.option2 {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    }
+    .design-header.option3 {
+      background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+    }
+    .design-header h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .design-header p {
+      opacity: 0.95;
+      font-size: 15px;
+    }
+    .design-preview {
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+    .design-body {
+      padding: 30px;
+    }
+    .design-body h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    .design-body ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+    .design-body li {
+      padding: 8px 0;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+    .design-body li:before {
+      content: "✓";
+      margin-right: 12px;
+      color: #667eea;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .choose-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .choose-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+    .mockup {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      margin-top: 60px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+    .mockup h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .feature {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+    }
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    .feature h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+    .feature p {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Modern Academic Design Options</h1>
+    <p class="subtitle">Choose your preferred design style for your academic portfolio</p>
+    
+    <div class="designs">
+      <!-- Option 1: Modern Minimalist -->
+      <div class="design-card">
+        <div class="design-header">
+          <h2>Option 1: Modern Minimalist</h2>
+          <p>Clean, elegant, with subtle gradients</p>
+        </div>
+        <div class="design-body">
+          <h3>Features:</h3>
+          <ul>
+            <li>Purple-gradient accent colors (#667eea)</li>
+            <li>Clean card-based layout</li>
+            <li>Smooth animations & hover effects</li>
+            <li>Modern sans-serif typography (Inter)</li>
+            <li>Glassmorphism effects</li>
+            <li>Minimal but sophisticated</li>
+          </ul>
+          <h3>Best For:</h3>
+          <ul>
+            <li>AI/ML researchers</li>
+            <li>Tech-forward academics</li>
+            <li>Modern, startup-like vibe</li>
+          </ul>
+          <button class="choose-btn" onclick="alert('Option 1: Modern Minimalist - Perfect choice! I will implement this design.')">Choose This Design</button>
+        </div>
+      </div>
+
+      <!-- Option 2: Professional Academic -->
+      <div class="design-card">
+        <div class="design-header option2">
+          <h2>Option 2: Professional Academic</h2>
+          <p>Classic academic with modern touches</p>
+        </div>
+        <div class="design-body">
+          <h3>Features:</h3>
+          <ul>
+            <li>Navy blue & gold accents (#1e3c72)</li>
+            <li>Serif headings (Playfair Display)</li>
+            <li>Traditional academic layout</li>
+            <li>Refined color palette</li>
+            <li>Formal yet contemporary</li>
+            <li>University-inspired design</li>
+          </ul>
+          <h3>Best For:</h3>
+          <ul>
+            <li>Traditional academics</li>
+            <li>Senior researchers</li>
+            <li>Formal institutional presence</li>
+          </ul>
+          <button class="choose-btn" onclick="alert('Option 2: Professional Academic - Excellent choice! I will implement this design.')">Choose This Design</button>
+        </div>
+      </div>
+
+      <!-- Option 3: Creative Tech -->
+      <div class="design-card">
+        <div class="design-header option3">
+          <h2>Option 3: Creative Tech</h2>
+          <p>Bold, innovative, stands out</p>
+        </div>
+        <div class="design-body">
+          <h3>Features:</h3>
+          <ul>
+            <li>Teal & green gradients (#134e5e)</li>
+            <li>Geometric accent shapes</li>
+            <li>Bold typography (Space Grotesk)</li>
+            <li>Asymmetric layouts</li>
+            <li>Vibrant but professional</li>
+            <li>Tech startup aesthetic</li>
+          </ul>
+          <h3>Best For:</h3>
+          <ul>
+            <li>Interdisciplinary researchers</li>
+            <li>Innovation-focused profiles</li>
+            <li>Creative tech professionals</li>
+          </ul>
+          <button class="choose-btn" onclick="alert('Option 3: Creative Tech - Great choice! I will implement this design.')">Choose This Design</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup">
+      <h2>✨ Common Modern Features (All Designs)</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <h3>Modern Color Schemes</h3>
+          <p>Contemporary gradients and professional palettes</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <h3>Fully Responsive</h3>
+          <p>Perfect on desktop, tablet, and mobile</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Smooth Animations</h3>
+          <p>Subtle transitions and hover effects</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔤</div>
+          <h3>Better Typography</h3>
+          <p>Modern web fonts with perfect hierarchy</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>Publication Cards</h3>
+          <p>Clean, scannable research showcase</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h3>Visual Hierarchy</h3>
+          <p>Clear sections with perfect spacing</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: white; border-radius: 15px;">
+      <h2 style="font-size: 28px; margin-bottom: 20px;">📋 My Recommendation</h2>
+      <p style="font-size: 18px; color: #666; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        For your profile (AI/Privacy researcher at a modern university), I recommend <strong style="color: #667eea;">Option 1: Modern Minimalist</strong>. 
+        It perfectly balances professionalism with contemporary design, aligns with tech-forward research, 
+        and creates a memorable impression without being too flashy.
+      </p>
+      <p style="margin-top: 30px; font-size: 16px; color: #999;">
+        Let me know which design you prefer, or if you'd like me to implement Option 1!
+      </p>
+    </div>
+  </div>
+</body>
+</html>
